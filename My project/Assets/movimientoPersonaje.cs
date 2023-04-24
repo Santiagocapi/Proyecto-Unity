@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class movimientoPersonaje : MonoBehaviour
 {
-
-    private velocidadPersonaje;
-
-    void Update () {
-        personajeMovimiento();
+    public float velocidadMovimiento;
+    
+    void Update()
+    {
+        ProcesarMoviemiento();
     }
 
-    void personajeMovimiento () {
-
+    void ProcesarMoviemiento()
+    {
         float inputMovimiento = Input.GetAxis("Horizontal");
-        Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+        Rigidbody2D.rigidbody = GetComponent<Rigidbody2D>();
 
-        rigidbody.velocidad = new Vector2 (inputMovimiento * velocidad, rigidbody.velocidad.y);
-
+        rigidbody.velocidad = new Vector2(inputMovimiento * velocidadMovimiento, rigidbody.velocidad.y);
     }
-
 }
