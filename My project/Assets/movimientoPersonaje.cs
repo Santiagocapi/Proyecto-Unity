@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class movimientoPersonaje : MonoBehaviour
 {
-    public float velocidadMovimiento;
-    
-    void Update()
+    // Start is called before the first frame update
+    void Start()
     {
-        ProcesarMoviemiento();
+        
     }
 
-    void ProcesarMoviemiento()
+    // Update is called once per frame
+    void Update()
     {
-        float inputMovimiento = Input.GetAxis("Horizontal");
-        Rigidbody2D.rigidbody = GetComponent<Rigidbody2D>();
-
-        rigidbody.velocidad = new Vector2(inputMovimiento * velocidadMovimiento, rigidbody.velocidad.y);
+        
     }
 }
