@@ -2,17 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class movimientoPersonaje : MonoBehaviour
+public class MovimientoPersonaje : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    bool isLeft = false;
+    bool isRight = false;
+
+    public Rigidbody2D rb;
+    public float velocidad;
+
+    public void clickLeft()
     {
-        
+        isLeft = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void releaseLeft()
     {
-        
+        isLeft = false;
+    }
+
+    public void clickRight()
+    {
+        isRight = true;
+    }
+
+    public void releaseRight()
+    {
+        isRight = false;
+    }
+
+    private void FixedUpdate()
+    {
+        if(isLeft)
+        {
+            rb.AddForce(new Vector2(-velocidad,0) * Time.deltaTime);
+        }
+
+        if(isRight)
+        {
+            rb.AddForce(new Vector2(velocidad,0) * Time.deltaTime);
+        }
     }
 }
