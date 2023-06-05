@@ -6,13 +6,18 @@ public class MovimientoPersonaje : MonoBehaviour
 {
     bool isLeft = false;
     bool isRight = false;
+    bool isJump = false;
+    bool canJump = true;
 
     public Rigidbody2D rb;
     public float velocidad;
-
+    public float jumpForce;
+    public float waitJump;
+    public SpriteRenderer spr;
     public void clickLeft()
     {
         isLeft = true;
+        spr.flipX = true;
     }
 
     public void releaseLeft()
@@ -23,11 +28,18 @@ public class MovimientoPersonaje : MonoBehaviour
     public void clickRight()
     {
         isRight = true;
+        spr.flipX = false;
     }
 
     public void releaseRight()
     {
         isRight = false;
+
+    }
+
+    public void clickJump()
+    {
+        isJump = true;
     }
 
     private void FixedUpdate()
@@ -41,5 +53,19 @@ public class MovimientoPersonaje : MonoBehaviour
         {
             rb.AddForce(new Vector2(velocidad,0) * Time.deltaTime);
         }
+
+        if(isJump && canJump)
+        {
+            isJump = false;
+            rb.AddForce(new Vector2(0, jumpForce));
+            canJump= false;
+            Invoke("waitToJump", waitJump);
+        }
+    }
+
+    void waitToJump ()
+    {
+        canJump = true;
     }
 }
+
