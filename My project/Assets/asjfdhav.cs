@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovimientoPersonaje : MonoBehaviour
+public class asjfdhav : MonoBehaviour
 {
     bool isLeft = false;
     bool isRight = false;
