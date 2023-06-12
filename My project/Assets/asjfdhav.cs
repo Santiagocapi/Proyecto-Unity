@@ -9,11 +9,26 @@ public class asjfdhav : MonoBehaviour
     bool isJump = false;
     bool canJump = true;
 
+    [Header ("Animations")]
+
+    private Animator animator;
+
     public Rigidbody2D rb;
     public float velocidad;
     public float jumpForce;
     public float waitJump;
     public SpriteRenderer spr;
+    
+      private void Start ()
+    {
+        animator = GetComponent<Animator>();
+    }
+
+    private void Update ()
+    {
+        animator.SetFloat("Horizontal", Mathf.Abs(velocidad));
+    }   
+
     public void clickLeft()
     {
         isLeft = true;
