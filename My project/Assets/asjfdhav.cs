@@ -18,10 +18,12 @@ public class asjfdhav : MonoBehaviour
     public float jumpForce;
     public float waitJump;
     public SpriteRenderer spr;
-    
-      private void Start ()
+    public AudioSource sonidoSalto;
+
+    private void Start ()
     {
         animator = GetComponent<Animator>();
+        sonidoSalto = GetComponent<AudioSource>();
     }
 
     private void Update ()
@@ -55,6 +57,7 @@ public class asjfdhav : MonoBehaviour
     public void clickJump()
     {
         isJump = true;
+        sonidoSalto.Play();
     }
 
     private void FixedUpdate()
