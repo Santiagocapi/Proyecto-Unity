@@ -8,7 +8,6 @@ public class MovementCharacter : MonoBehaviour
     public float jump;
     
     private Rigidbody2D rb;
-    private BoxCollider2D boxCollider;
     public LayerMask Floor;
 
     private bool lookright = true;
@@ -17,7 +16,6 @@ public class MovementCharacter : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
     }
 
