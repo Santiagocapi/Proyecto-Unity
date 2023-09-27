@@ -4,14 +4,23 @@ using UnityEngine;
 
 public class MovementCharacter : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float jump;
-    
-    private Rigidbody2D rb;
-    public LayerMask Floor;
 
+    [Header ("Movimiento")]
+    public float moveSpeed = 5f;
     private bool lookright = true;
+    private Rigidbody2D rb;
+    
+    [Header ("Salto")]
+    public LayerMask Floor;
+    public float jump;
+
+    [Header ("Animacion")]
     private Animator animator;
+
+    private void Start ()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void Awake()
     {
